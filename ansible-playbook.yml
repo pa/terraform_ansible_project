@@ -5,6 +5,7 @@
 
   tasks:
     - name: terraform init
+      content: 'PATH=$PATH:/home/ec2-user/terraform'
       command: /home/ec2-user/terraform/terraform init
       args:
         chdir: terraform/
