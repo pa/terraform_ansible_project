@@ -2,20 +2,15 @@
 - hosts: localhost
   connection: local
   gather_facts: no
-
   environment:
     PATH: "$PATH:/home/ec2-user/terraform/"
 
-- terraform:
-    project_path: 'terraform/'
-    state: planned
-    force_init: true
-    backend_config:
-      region: "us-east-1"
-      bucket: "state-storage-terraform"
-      key: "terraform-execution-state/"
-
   tasks:
+    - name: terraform init
+      command: /home/ec2-user/terraform/terraform init
+      args:
+        chdir: terraform/
+
     - name: terraform plan
       terraform:
         project_path: "terraform/"
