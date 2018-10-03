@@ -8,6 +8,10 @@
   tasks:
     - name: terraform init
       command: /home/ec2-user/terraform/terraform init
+      backend_config:
+        region: "us-east-1"
+        bucket: "state-storage-terraform"
+        key: "terraform-execution-state/"
       args:
         chdir: terraform/
 
@@ -16,8 +20,4 @@
         project_path: "terraform/"
         plan_file: "terraform-execution-state/myplan.tfplan"
         state: planned
-        backend_config:
-          region: "us-east-1"
-          bucket: "state-storage-terraform"
-          key: "terraform-execution-state/"
       register: plan_results
