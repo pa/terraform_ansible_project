@@ -11,9 +11,16 @@
       args:
         chdir: terraform/
 
-    - name: terraform plan
-      terraform:
-        project_path: "terraform/"
-        plan_file: "terraform-execution-state/myplan.tfplan"
-        state: planned
-      register: plan_results
+    - name: terraform apply
+      command: /home/ec2-user/terraform/terraform destroy
+      args:
+        chdir: terraform/
+
+
+
+#    - name: terraform plan
+#      terraform:
+#        project_path: "terraform/"
+#        plan_file: "terraform-execution-state/myplan.tfplan"
+#        state: planned
+#      register: plan_results
