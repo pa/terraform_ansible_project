@@ -5,7 +5,7 @@
 
   tasks:
     - name: terraform init
-      command: terraform init
+      command: terraform init arg1
       args:
         chdir: terraform/
 
