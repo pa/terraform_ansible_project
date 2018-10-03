@@ -1,14 +1,12 @@
 ---
-
 - hosts: localhost
   connection: local
   gather_facts: no
 
-- terraform:
-    project_path: '/home/ec2-user/terraform_ansible_project'
-    state: "Planned"
-    force_init: true
-    backend_config:
-      region: "eu-west-1"
-      bucket: "state-storage-terraform"
-      key: "terraform-execution-state/"
+
+  - name: terraform plan
+    terraform:
+      project_path: "/"
+      plan_file: "myplan.tfplan"
+      state: planned
+    register: plan_result
