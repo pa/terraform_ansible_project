@@ -4,6 +4,10 @@
   gather_facts: no
 
   tasks:
+    - name: terraform init
+      project_path: "terraform/"
+      command: terraform init
+
     - name: terraform plan
       terraform:
         project_path: "terraform/"
