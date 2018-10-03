@@ -3,10 +3,10 @@
   connection: local
   gather_facts: no
 
-
-  - name: terraform plan
-    terraform:
-      project_path: "/"
-      plan_file: "myplan.tfplan"
-      state: planned
-    register: plan_result
+  tasks:
+    - name: terraform plan
+      terraform:
+        project_path: "/"
+        plan_file: "myplan.tfplan"
+        state: planned
+      register: plan_results
