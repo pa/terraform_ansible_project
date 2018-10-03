@@ -14,5 +14,10 @@
     - name: terraform plan
       terraform:
         project_path: "terraform/"
-        state: present
+        plan_file: "terraform-execution-state/myplan.tfplan"
+        state: planned
+        backend_config:
+          region: "us-east-1"
+          bucket: "state-storage-terraform"
+          key: "terraform-execution-state/"
       register: plan_results
