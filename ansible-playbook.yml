@@ -5,7 +5,7 @@
 
   tasks:
     - name: terraform init
-      command: terraform init /home/ec2-user/terraform_ansible_project/terraform
+      command: "terraform init /home/ec2-user/terraform_ansible_project/terraform"
 
     - name: terraform plan
       terraform:
