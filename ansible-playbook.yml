@@ -4,14 +4,14 @@
   gather_facts: no
   environment:
     PATH: "$PATH:/home/ec2-user/terraform/"
+  backend_config:
+    region: "us-east-1"
+    bucket: "state-storage-terraform"
+    key: "terraform-execution-state/"
 
   tasks:
     - name: terraform init
       command: /home/ec2-user/terraform/terraform init
-      backend_config:
-        region: "us-east-1"
-        bucket: "state-storage-terraform"
-        key: "terraform-execution-state/"
       args:
         chdir: terraform/
 
