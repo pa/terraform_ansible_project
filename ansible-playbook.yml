@@ -14,6 +14,5 @@
     - name: terraform plan
       terraform:
         project_path: "terraform/"
-        plan_file: "terraform-execution-state/myplan.tfplan"
-        state: planned
+        state: present
       register: plan_results
