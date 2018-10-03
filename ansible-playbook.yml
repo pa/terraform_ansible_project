@@ -6,7 +6,7 @@
   tasks:
     - name: terraform plan
       terraform:
-        project_path: "."
+        project_path: "terraform/"
         plan_file: "myplan.tfplan"
         state: planned
       register: plan_results
