@@ -29,6 +29,8 @@
       terraform:
         project_path: "terraform/"
         state: present
+        variables:
+          aws_key_name: "{{ key_name }}"
       when: terraform_phase == "apply"
       variables:
         aws_key_name: "{{ key_name }}"
