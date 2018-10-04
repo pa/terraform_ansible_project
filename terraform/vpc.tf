@@ -22,7 +22,7 @@ resource "aws_instance" "nat" {
     ami = "ami-04681a1dbd79675a5" # this is a special ami preconfigured to do NAT
     availability_zone = "us-east-1a"
     instance_type = "t2.micro"
-    key_name = "P250917h"
+    key_name = "${var.aws_key_name}"
     vpc_security_group_ids = ["${aws_security_group.nat.id}"]
     subnet_id = "${aws_subnet.us-east-1a-public.id}"
     associate_public_ip_address = true
@@ -32,6 +32,7 @@ resource "aws_instance" "nat" {
         Name = "VPC NAT"
     }
 }
+
 
 /*
 Elastic IP for NAT Instance
