@@ -20,9 +20,9 @@
         project_path: "terraform/"
         plan_file: "/home/ec2-user/terraform_ansible_project/terraform/myplan.tfplan"
         state: planned
+        variables:
+          aws_key_name: "{{ key_name }}"
       when: (terraform_phase == "plan" or terraform_phase == "apply")
-      variables:
-        aws_key_name: "{{ key_name }}"
       register: plan_results
 
     - name: terraform apply
