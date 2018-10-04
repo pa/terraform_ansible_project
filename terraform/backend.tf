@@ -1,7 +1,7 @@
 terraform {
   backend "s3" {
-    bucket = "${bucket}"
-    key    = "${key}"
-    region = "${region}"
+    bucket = "state-storage-terraform"
+    key    = "terraform-execution-state/"
+    region = "us-east-1"
   }
 }
