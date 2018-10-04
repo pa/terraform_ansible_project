@@ -17,8 +17,9 @@ This repository contains a Terraform project that builds VPC with Public and Pri
 - [public_instance.tf](./terraform/public_instance.tf): This file provides a EC2 instance resource to attach to public subnet.
 
 ## How to run ansible-playbook.yml
-ansible-playbook ansible-playbook.yml  -e "key_name=sample-key-name"
-
+```
+  ansible-playbook ansible-playbook.yml  -e "key_name=sample-key-name"
+```
 ## Sample Execution
 
 Below output is for terraform plan
