@@ -22,6 +22,10 @@
         state: planned
         variables:
           aws_key_name: "{{ key_name }}"
+        backend_config:
+          region: "{{ region }}"
+          bucket: "{{ bucket }}"
+          key: "random.tfstate"
       when: (terraform_phase == "plan" or terraform_phase == "apply")
       register: plan_results
 
@@ -31,6 +35,10 @@
         state: present
         variables:
           aws_key_name: "{{ key_name }}"
+        backend_config:
+          region: "{{ region }}"
+          bucket: "{{ bucket }}"
+          key: "random.tfstate"
       when: terraform_phase == "apply"
       variables:
         aws_key_name: "{{ key_name }}"
