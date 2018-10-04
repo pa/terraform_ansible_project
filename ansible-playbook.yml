@@ -20,5 +20,5 @@
         plan_file: "/home/ec2-user/terraform_ansible_project/terraform/myplan.tfplan"
         state: planned
       when:
-        - "{{ terraform_phase }}" == "plan"
+        - {{ terraform_phase }} == "plan"
       register: plan_results
