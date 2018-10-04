@@ -10,17 +10,16 @@
       private: no
 
   tasks:
+    - name: terraform init
+      command: /home/ec2-user/terraform/terraform init
+      args:
+        chdir: terraform/
 
     - name: terraform plan
       terraform:
         project_path: "terraform/"
         plan_file: "/home/ec2-user/terraform_ansible_project/terraform/myplan.tfplan"
         state: planned
-        force_init: true
-        backend_config:
-          region: "us-east-1"
-          bucket: "state-storage-terraform"
-          key: "terraform-execution-state/"
         variables:
           aws_key_name: "{{ key_name }}"
       when: (terraform_phase == "plan" or terraform_phase == "apply")
