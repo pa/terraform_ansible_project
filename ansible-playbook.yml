@@ -4,6 +4,9 @@
   gather_facts: no
   environment:
     PATH: "$PATH:/home/ec2-user/terraform/"
+  vars_prompt:
+    - name: "terraform_phase"
+      prompt: "Type for the condition "plan" or "plan_execute" or "execute"
 
   tasks:
     - name: terraform init
@@ -11,9 +14,10 @@
       args:
         chdir: terraform/
 
-    - name: terraform plan
+    - name: terraform phase
       terraform:
         project_path: "terraform/"
         plan_file: "/home/ec2-user/terraform_ansible_project/terraform/myplan.tfplan"
         state: planned
+      when: "{{ terraform_phase }}" == "plan"
       register: plan_results
