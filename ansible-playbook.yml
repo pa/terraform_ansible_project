@@ -13,8 +13,7 @@
 
     - name: terraform plan
       terraform:
-#        project_path: "terraform/"
-        command: /home/ec2-user/terraform/terraform plan
-#        plan_file: "terraform-execution-state/myplan.tfplan"
+        project_path: "terraform/"
+#        plan_file: "terraform/myplan.tfplan"
         state: planned
       register: plan_results
