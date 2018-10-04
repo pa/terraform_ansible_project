@@ -1,0 +1,12 @@
+- name: terraform plan
+  terraform:
+    project_path: "terraform/"
+    plan_file: "/home/ec2-user/terraform_ansible_project/terraform/myplan.tfplan"
+    state: planned
+  register: plan_results
+
+- name: terraform apply
+  terraform:
+    project_path: "terraform/"
+    state: present
+  register: plan_results
