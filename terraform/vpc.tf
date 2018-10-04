@@ -35,7 +35,7 @@ resource "aws_instance" "nat" {
 
 
 /*
-Elastic IP for NAT Instance
+  Elastic IP for NAT Instance
 */
 resource "aws_eip" "nat" {
     instance = "${aws_instance.nat.id}"

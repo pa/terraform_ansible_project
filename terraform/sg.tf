@@ -65,8 +65,6 @@ resource "aws_security_group" "db" {
     }
 }
 
-
-
 /*
 Security Group for Public Instance
 */
