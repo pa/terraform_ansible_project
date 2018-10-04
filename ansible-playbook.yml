@@ -22,7 +22,7 @@
         state: planned
       when: (terraform_phase == "plan" or terraform_phase == "apply")
       register: plan_results
-    - debug: msg="plan_results.stdout"
+    - debug: msg=plan_results.stdout
 
     - name: terraform apply
       terraform:
@@ -30,4 +30,4 @@
         state: present
       when: terraform_phase == "apply"
       register: apply_results
-    - debug: msg="apply_results.stdout"
+    - debug: msg=apply_results.stdout
