@@ -11,14 +11,9 @@
       args:
         chdir: terraform/
 
-#    - name: terraform plan
-#      terraform:
-#        project_path: "terraform/"
-#        plan_file: "terraform/myplan.tfplan"
-#        state: planned
-#      register: plan_results
     - name: terraform plan
       terraform:
         project_path: "terraform/"
-        state: present
+        plan_file: "terraform/"
+        state: planned
       register: plan_results
