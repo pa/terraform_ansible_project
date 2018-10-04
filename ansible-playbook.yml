@@ -22,7 +22,7 @@
         state: planned
       when: (terraform_phase == "plan" or terraform_phase == "apply")
       variables:
-        aws_key_name: {{ key_name }}
+        aws_key_name: "{{ key_name }}"
       register: plan_results
 
     - name: terraform apply
@@ -31,5 +31,5 @@
         state: present
       when: terraform_phase == "apply"
       variables:
-        aws_key_name: {{ key_name }}
+        aws_key_name: "{{ key_name }}"
       register: apply_results
