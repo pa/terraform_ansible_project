@@ -16,7 +16,7 @@
         chdir: terraform/
 
     - include: plan.yml
-     when: terraform_phase == 'plan'
+      when: terraform_phase == 'plan'
 
     - include: plan_apply.yml
-     when: terraform_phase == 'apply'
+      when: terraform_phase == 'apply'
