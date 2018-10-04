@@ -5,9 +5,10 @@
   environment:
     PATH: "$PATH:/home/ec2-user/terraform/"
 
-- pause:
-       prompt: "Type for the condition plan or plan_execute or execute?"
-      register: terraform_phase
+- name: confirm
+  pause:
+      prompt: "Type for the condition plan or plan_execute or execute?"
+  register: terraform_phase
 
   tasks:
     - name: terraform init
