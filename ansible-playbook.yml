@@ -5,12 +5,16 @@
   environment:
     PATH: "$PATH:/home/ec2-user/terraform/"
 
-- name: confirm
-  pause:
-      prompt: "Type for the condition plan or plan_execute or execute?"
-  register: terraform_phase
+  vars_prompt:
+    - name: "terraform_phase"
+      prompt: "Type for the condition plan or plan_execute or execute"
 
   tasks:
+    - name: Enter a Github username
+      vars_prompt:
+        name: terraform_phase
+        default: ""
+
     - name: terraform init
       command: /home/ec2-user/terraform/terraform init
       args:
@@ -21,5 +25,5 @@
         project_path: "terraform/"
         plan_file: "/home/ec2-user/terraform_ansible_project/terraform/myplan.tfplan"
         state: planned
-      when: hostvars['localhost']['terraform_phase']['user_input'] == 'plan'
+      when: terraform_phase == 'plan'
       register: plan_results
