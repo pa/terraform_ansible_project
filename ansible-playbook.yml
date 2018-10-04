@@ -15,8 +15,17 @@
       args:
         chdir: terraform/
 
-    - include: plan.yml
-      when: terraform_phase == 'plan'
+    - name: terraform plan
+      terraform:
+        project_path: "terraform/"
+        plan_file: "/home/ec2-user/terraform_ansible_project/terraform/myplan.tfplan"
+        state: planned
+      when: (terraform_phase == "plan" or terraform_phase == "apply")
+      register: plan_results
 
-    - include: plan_apply.yml
-      when: terraform_phase == 'apply'
+    - name: terraform apply
+      terraform:
+        project_path: "terraform/"
+        state: present
+      when: terraform_phase == "apply"
+      register: plan_results
