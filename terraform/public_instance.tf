@@ -19,6 +19,6 @@ resource "aws_instance" "web-1" {
               EOF
 
     tags {
-        Name = "Web Server 1"
+        Name = "Web Server"
     }
 }

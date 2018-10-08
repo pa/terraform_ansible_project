@@ -12,6 +12,6 @@ resource "aws_instance" "db-1" {
     source_dest_check = false
 
     tags {
-        Name = "DB Server 1"
+        Name = "DB Server"
     }
 }
