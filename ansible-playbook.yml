@@ -33,3 +33,13 @@
           aws_key_name: "{{ key_name }}"
       when: terraform_phase == "apply"
       register: apply_results
+
+
+    - name: terraform destroy
+      terraform:
+        project_path: "terraform/"
+        state: absent
+        variables:
+          aws_key_name: "{{ key_name }}"
+      when: terraform_phase == "destroy"
+      register: apply_results
